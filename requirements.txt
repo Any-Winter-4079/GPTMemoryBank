@@ -1,0 +1,4 @@
+flask
+lancedb
+tantivy==0.20.1
+python-dotenv
