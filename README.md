@@ -4,7 +4,7 @@
 ![Group 290](https://github.com/Any-Winter-4079/GPTMemoryBank/assets/50542132/59f9db07-886f-4397-b10e-35e44d5553b8)
 
 
-GPTMemoryBank is a project that aims to augment GPT models with a local memory bank stored in a vector database, allowing for persistent context and improved memory management. Inspired by [MemGPT](https://github.com/cpacker/MemGPT) but interacting with the Web Interface of GPT (Plus) (via GPT Actions) instead of the API, as the API can get costly quickly.
+GPTMemoryBank is a (free and personal) project that aims to augment GPT models with a local memory bank stored in a vector database, allowing for persistent context and improved memory management. Inspired by [MemGPT](https://github.com/cpacker/MemGPT) (paper [here](https://arxiv.org/pdf/2310.08560.pdf))  but interacting with the Web Interface of GPT (Plus) (via GPT Actions) instead of the API, as the API can get costly quickly.
 
 ## Quick Start
 
@@ -32,7 +32,8 @@ pip install -r requirements.txt
 
 ### 5. Configure ngrok
 
-![Group 293](https://github.com/Any-Winter-4079/GPTMemoryBank/assets/50542132/1063a0e1-9b1c-4700-913e-d6c0cb896168)
+![Group 294](https://github.com/Any-Winter-4079/GPTMemoryBank/assets/50542132/e306cdc5-4d47-450f-a310-94dfb827747a)
+
 
 
 [ngrok](https://ngrok.com/) is used to make the local Flask app available on the internet (vs. having it on localhost which GPT-4 can't access).
