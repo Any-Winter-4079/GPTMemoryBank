@@ -4,7 +4,7 @@
 ![Group 290](https://github.com/Any-Winter-4079/GPTMemoryBank/assets/50542132/59f9db07-886f-4397-b10e-35e44d5553b8)
 
 
-GPTMemoryBank is a project that aims to augment GPT models with a local memory bank stored in a vector database, allowing for persistent context and improved memory management.
+GPTMemoryBank is a project that aims to augment GPT models with a local memory bank stored in a vector database, allowing for persistent context and improved memory management. Inspired by [MemGPT](https://github.com/cpacker/MemGPT) but interacting with the Web Interface of GPT (Plus) (via GPT Actions) instead of the API, as the API can get costly quickly.
 
 ## Quick Start
 
@@ -19,7 +19,7 @@ cd GPTMemoryBank
 ```
 
 
-### 3. (Optional) Create a Virtual Environment
+### 3. (Optional) Create and activate a Virtual Environment
 ```bash
 python -m venv GPTMemoryBankEnv
 source GPTMemoryBankEnv/bin/activate  # On Windows, use `GPTMemoryBankEnv\Scripts\activate`
@@ -29,3 +29,11 @@ source GPTMemoryBankEnv/bin/activate  # On Windows, use `GPTMemoryBankEnv\Script
 ```bash
 pip install -r requirements.txt
 ```
+
+### 5. Configure ngrok
+
+![Group 293](https://github.com/Any-Winter-4079/GPTMemoryBank/assets/50542132/1063a0e1-9b1c-4700-913e-d6c0cb896168)
+
+
+[ngrok](https://ngrok.com/) is used to make the local Flask app available on the internet (vs. having it on localhost which GPT-4 can't access).
+The Flask app remains on your local machine to make use of LanceDB (vector database) without memory limits (other than your computer's disk, which is likely much larger than what a free-tier hosting or vector database service can offer). Feel free to host the Flask app on the Cloud or use a different tunneling service if you'd like. Here, ngrok is used to make the Flask app (with the GET, POST, PUT, DELETE endpoints for GPT-4 to call) available on a public domain. An intermediate proxy server (in Node.js) is used to set 'ngrok-skip-browser-warning': 'true' (as ngrok suggests) to bypass ngrock's user confirmation screen before reaching the endpoint, which would break GPT-4's access to the endpoint.
