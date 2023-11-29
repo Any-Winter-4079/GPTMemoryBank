@@ -25,7 +25,7 @@ python -m venv GPTMemoryBankEnv
 source GPTMemoryBankEnv/bin/activate  # On Windows, use `GPTMemoryBankEnv\Scripts\activate`
 ```
 
-### 4. Install Depedencies
+### 4. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
