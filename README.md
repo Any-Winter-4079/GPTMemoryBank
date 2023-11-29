@@ -38,3 +38,26 @@ pip install -r requirements.txt
 
 [ngrok](https://ngrok.com/) is used to make the local Flask app available on the internet (vs. having it on localhost which GPT-4 can't access).
 The Flask app remains on your local machine to make use of LanceDB (vector database) without memory limits (other than your computer's disk, which is likely much larger than what a free-tier hosting or vector database service can offer). Feel free to host the Flask app on the Cloud or use a different tunneling service if you'd like. Here, ngrok is used to make the Flask app (with the GET, POST, PUT, DELETE endpoints for GPT-4 to call) available on a public domain. An intermediate proxy server (in Node.js) is used to set 'ngrok-skip-browser-warning': 'true' (as ngrok suggests) to bypass ngrock's user confirmation screen before reaching the endpoint, which would break GPT-4's access to the endpoint.
+
+```bash
+brew install ngrok/ngrok/ngrok # On macOS. Or download from https://ngrok.com/download
+```
+Sign up at ngrok.com to get an auth token
+```bash
+ngrok config add-authtoken {AUTH_TOKEN}  # Replace {AUTH_TOKEN} with your actual auth token
+```
+Create a custom API key in a .env file for security
+```bash
+echo "API_KEY=your_custom_api_key_here" > .env  # Replace with your actual API key
+```
+Get a free domain from ngrok's cloud-edge domains.
+
+### 6. Save your schema in GPT-4 Actions
+Go to Configure, Create new action, Paste schema
+In Authentication:
+* Select ```API Key```
+* Choose ```API Key``` as Authentication Type
+* Paste your API Key on ```<HIDDEN>```
+* Select ```Basic``` as Auth Type
+
+
